@@ -26,7 +26,6 @@ import {
   Settings as SettingsIcon,
   Payment as PaymentIcon,
   Logout as LogoutIcon,
-  AccountCircle,
 } from '@mui/icons-material';
 import { useAuth } from '@/contexts/AuthContext';
 

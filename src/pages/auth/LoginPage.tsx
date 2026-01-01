@@ -9,7 +9,6 @@ import {
   Button,
   Link,
   Alert,
-  IconButton,
 } from '@mui/material';
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
 import { useAuth } from '@/contexts/AuthContext';

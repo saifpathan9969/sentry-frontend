@@ -24,7 +24,7 @@ import {
   Speed as SpeedIcon,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { apiClient } from '@/api/client';
 import { useAuth } from '@/contexts/AuthContext';
 import type { Scan } from '@/types';
@@ -120,7 +120,9 @@ const DashboardPage: React.FC = () => {
 
   const tierLimits = getTierLimits();
   const dailyUsage = usageStats?.scans_today || 0;
-  const monthlyUsage = usageStats?.scans_this_month || 0;
+  // monthlyUsage available for future use
+  const _monthlyUsage = usageStats?.scans_this_month || 0;
+  void _monthlyUsage; // Suppress unused warning
 
   if (loading) {
     return <Box sx={{ width: '100%' }}><LinearProgress /></Box>;
@@ -240,7 +242,7 @@ const DashboardPage: React.FC = () => {
                   fill="#8884d8"
                   dataKey="value"
                 >
-                  {getSeverityData().map((entry, index) => (
+                  {getSeverityData().map((_, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
